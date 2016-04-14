@@ -1,13 +1,3 @@
-export CLICOLOR=1
-
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-hg_ps1() {
-    hg prompt "{ on {branch}}{ at {bookmark}}{status}" 2> /dev/null
-}
-
-export PS1='\u at \h in \w$(hg_ps1)\n$ '
-
 # Short bender.
 alias b="bender"
 
@@ -23,6 +13,29 @@ function br() {
 }
 export PATH=~/wl/bender:$PATH
 
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export LC_CTYPE=da_DK.utf8                                                                                                                                   
+export LC_ALL=da_DK.utf8
+
+export PATH=~/wl/bender:$PATH
+
+alias l='ls -lah'
+alias cd..='cd ..'
+ 
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+alias bashrc='vim ~/.bashrc && source ~/.bashrc'
+
+function cdl() {
+  cd "$@" && ls -la
+}
+
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
 
