@@ -1,0 +1,14 @@
+[ui]
+username = Erik Svendsen Laustsen <erikdrums@gmail.com>
+editor = nano
+
+[extensions]
+color =
+hgext.ftp = /Users/eriksvendsen/Sites/test_ftp/hgftp/ftp.py
+prompt = /Users/eriksvendsen/Sites/Buddyshop/hg-prompt/prompt.py
+fold = /usr/local/bin/hgfold/fold.py
+graphlog = 
+fixcase = /usr/local/bin/fixcases.py
+hgext.purge=
+hgshelve=~/mercurial/shelve.py
+mq=
