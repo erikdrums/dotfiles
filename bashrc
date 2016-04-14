@@ -23,7 +23,6 @@ function br() {
 }
 export PATH=~/wl/bender:$PATH
 
-export PATH=$PATH:/Users/eriksvendsen/Sites/jazz.dk/wp-content/themes/jazz.dk-theme-only/vendor/bin/
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
