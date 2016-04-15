@@ -3,8 +3,8 @@ username = Erik Svendsen Laustsen <erikdrums@gmail.com>
 
 [extensions]
 color =
-fold = /usr/local/bin/hgfold/fold.py
+fold = 
 graphlog = 
-hgext.purge=
-hgshelve=~/mercurial/shelve.py
-mq=
+hgext.purge =
+hgshelve =
+mq =
