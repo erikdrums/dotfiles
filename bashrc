@@ -39,3 +39,6 @@ function mk() {
   mkdir -p "$@" && cd "$@"
 }
 
+function hgcp() {
+  hg ci -m $1 && hg push
+}
