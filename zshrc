@@ -91,3 +91,49 @@ ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
 
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+
+# Short bender.
+alias b="bender"
+
+# Go to and activate the given install name. E.g.:
+#     bgo sund
+function bgo() {
+    cd $(bender cd $1) && source $(bender source)
+}
+
+# Shortcut to runserver.
+function br() {
+    python manage.py runserver $(bender runserver)
+}
+
+export LC_CTYPE=da_DK.utf8
+export LC_ALL=da_DK.utf8
+
+export PATH=~/wl/bender:$PATH
+
+alias l='ls -lah'
+alias cd..='cd ..'
+
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+
+function cdl() {
+  cd "$@" && ls -la
+}
+
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
+
+function hgcp() {
+  hg ci -m $1 && hg push
+}
+
+alias sund="cd ~/wl/sund/sundhedstallet"
+alias n="nano"

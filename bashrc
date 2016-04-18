@@ -1,3 +1,4 @@
+
 # Short bender.
 alias b="bender"
 
@@ -11,7 +12,6 @@ function bgo() {
 function br() {
     python manage.py runserver $(bender runserver)
 }
-export PATH=~/wl/bender:$PATH
 
 export LC_CTYPE=da_DK.utf8                                                                                                                                   
 export LC_ALL=da_DK.utf8
@@ -29,7 +29,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-alias bashrc='vim ~/.bashrc && source ~/.bashrc'
 
 function cdl() {
   cd "$@" && ls -la
@@ -42,3 +41,5 @@ function mk() {
 function hgcp() {
   hg ci -m $1 && hg push
 }
+
+alias sund="cd ~/wl/sund/sundhedstallet"
