@@ -1,4 +1,10 @@
-node_modules/*
-ctags
-*.sql
 tags
+*.orig
+node_modules/*
+PIE.htc
+#html5shiv-printshiv.js
+#jquery.ui.datepicker-*
+#bootstrap.min.js
+sundhedstallet/node_modules/*
+*.json
+*.sql
