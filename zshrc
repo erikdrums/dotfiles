@@ -6,7 +6,13 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="avit"
+
+fpath=('/usr/share/zsh/functions/' $fpath)
+autoload -U compinit
+compinit
+
 plugins=(git mercurial brew npm)
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

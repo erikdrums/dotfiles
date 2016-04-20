@@ -263,6 +263,16 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>4 0wx:w<ENTER>
 :noremap <silent> <leader>7 I//<ESC>:w<ENTER>
 :noremap <silent> <leader>8 0wxx:w<ENTER>
+:nnoremap <Leader>9 g<C-]>
+:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
+::nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
+:nnoremap <leader>y /\<\(def\\|class\\|function\)\> <ENTER>
+
+map + <Plug>(wildfire-fuel)
+map _ <Plug>(wildfire-water)
+
+" wrap word in dir(), nice for python print
+:nnoremap <silent> <leader>i bidir(<ESC>ea)<ESC><leader>w
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
