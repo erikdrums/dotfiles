@@ -11,7 +11,7 @@ fpath=('/usr/share/zsh/functions/' $fpath)
 autoload -U compinit
 compinit
 
-plugins=(git mercurial brew npm)
+plugins=(git mercurial brew npm history-substring-search django python pip node)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -143,3 +143,30 @@ function hgcp() {
 
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
+
+source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+## Arrow Keys ###########################################
+
+# OPTION 1: for most systems
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# OPTION 2: for iTerm2 running on Apple MacBook laptops
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
+
+# OPTION 3: for Ubuntu 12.04, Fedora 21, and MacOSX 10.9
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+## EMACS mode ###########################################
+
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+## VI mode ##############################################
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
