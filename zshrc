@@ -11,7 +11,7 @@ fpath=('/usr/share/zsh/functions/' $fpath)
 autoload -U compinit
 compinit
 
-plugins=(git mercurial brew npm history-substring-search django python pip node)
+plugins=(z git mercurial brew npm history-substring-search django python pip node)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -170,3 +170,5 @@ bindkey -M emacs '^N' history-substring-search-down
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+. ~/.oh-my-zsh/plugins/z/z.sh
