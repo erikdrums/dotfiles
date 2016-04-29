@@ -268,6 +268,7 @@ set pastetoggle=<F2>
 :nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
 ::nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
 :nnoremap <leader>y /\<\(def\\|class\\|function\)\> <ENTER>
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
 
 map + <Plug>(wildfire-fuel)
 map _ <Plug>(wildfire-water)
@@ -287,11 +288,6 @@ vnoremap ^[j :m '>+1<CR>gv=gv
 vnoremap ^[k :m '<-2<CR>gv=gv
 
 
-:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
-
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
-
-:nnoremap <Leader>9 g<C-]>
 
 let c='a'
 while c <= 'z'
