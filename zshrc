@@ -137,3 +137,4 @@ function hgcp() {
 
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
+export PATH="/usr/local/bin:$PATH"
