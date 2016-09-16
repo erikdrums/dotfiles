@@ -98,6 +98,9 @@ ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
 
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
+unsetopt inc_append_history
+unsetopt share_history
+
 # Short bender.
 alias b="bender"
 

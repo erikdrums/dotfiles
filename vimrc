@@ -26,6 +26,11 @@ Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'andviro/flake8-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
+"Plugin 'blueyed/vim-diminactive'
+"Plugin 'python-rope/ropevim'
+"Plugin 'klen/python-mode'
+Plugin 'cohama/lexima.vim'
+Plugin 'easymotion/vim-easymotion'
 
 
 " All of your Plugins must be added before the following line
@@ -145,7 +150,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 let NERDTreeShowHidden=1
 
-
+let g:diminactive_use_syntax = 1
+let g:diminactive_enable_focus = 1
 
 " Smart way to move between windows"
 
