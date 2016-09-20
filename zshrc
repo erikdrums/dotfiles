@@ -144,6 +144,10 @@ function hgcp() {
   hg ci -m $1 && hg push
 }
 
+function hgu() {
+  hg pull -u
+}
+
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
 
