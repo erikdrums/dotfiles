@@ -304,12 +304,15 @@ endw
 function! s:CloseWindow(myParam)
     echom a:myParam
     let init_window =  winnr()
+    " Go to window and close
     execute a:myParam . 'wincmd w'
     let closing_window =  winnr()
     if closing_window < init_window
-        init_window = init_window - 1
+        let init_window = init_window - 1
     endif
+    "Close to Window
     execute 'wincmd c'
+    "Go to original window
     execute init_window . 'wincmd w'
 endfunction
 
