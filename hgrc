@@ -7,3 +7,4 @@ graphlog =
 hgext.purge =
 shelve =
 mq =
+convert=

@@ -30,7 +30,6 @@ Plugin 'tpope/vim-surround'
 "Plugin 'python-rope/ropevim'
 "Plugin 'klen/python-mode'
 Plugin 'cohama/lexima.vim'
-Plugin 'easymotion/vim-easymotion'
 
 
 " All of your Plugins must be added before the following line
@@ -310,3 +309,8 @@ function! s:MyFunc(myParam)
 endfunction
 
 command! -nargs=1 MyCommand call s:MyFunc(<f-args>)
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+endwhile
