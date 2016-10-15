@@ -303,3 +303,10 @@ while c <= 'z'
 endw
 
 set timeout ttimeoutlen=50
+
+function! s:MyFunc(myParam)
+    echom a:myParam
+    echom winnr('$')
+endfunction
+
+command! -nargs=1 MyCommand call s:MyFunc(<f-args>)
