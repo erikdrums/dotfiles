@@ -301,12 +301,29 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 
-set timeout ttimeoutlen=50
+function! s:CloseWindow(myParam)
+    echom a:myParam
+    let init_window =  winnr()
+    " Go to window and close
+    execute a:myParam . 'wincmd w'
+    let closing_window =  winnr()
+    if closing_window < init_window
+        let init_window = init_window - 1
+    endif
+    "Close to Window
+    execute 'wincmd c'
+    "Go to original window
+    execute init_window . 'wincmd w'
+endfunction
+
+command! -nargs=1 Cw call s:CloseWindow(<f-args>)
 
 let i = 1
 while i <= 9
     execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    execute 'nnoremap <Leader>' . i . 'cw :Cw ' . i . '<ENTER>'
     let i = i + 1
 endwhile
 
 :nnoremap <leader>ca :CtrlPClearAllCaches<ENTER>
+set timeout ttimeoutlen=50

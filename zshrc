@@ -179,3 +179,5 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 . ~/.oh-my-zsh/plugins/z/z.sh
+export PATH="/usr/local/bin:$PATH"
+export PATH=/usr/local/share/python:$PATH
