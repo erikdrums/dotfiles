@@ -308,3 +308,5 @@ while i <= 9
     execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
     let i = i + 1
 endwhile
+
+:nnoremap <leader>ca :CtrlPClearAllCaches<ENTER>
