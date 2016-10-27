@@ -141,7 +141,7 @@ function mk() {
 }
 
 function hgcp() {
-  hg ci -m $1 && hg push
+  hg ci -m "'$1'" && hg push
 }
 
 function hgu() {
