@@ -26,6 +26,7 @@ Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'andviro/flake8-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
 
 
 " All of your Plugins must be added before the following line
