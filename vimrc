@@ -26,6 +26,9 @@ Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'andviro/flake8-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
+"Plugin 'blueyed/vim-diminactive'
+"Plugin 'python-rope/ropevim'
+Plugin 'cohama/lexima.vim'
 Plugin 'easymotion/vim-easymotion'
 
 
@@ -105,7 +108,7 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
-set number
+set number 
 set undofile
 let python_highlight_all = 1
 
@@ -146,7 +149,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 let NERDTreeShowHidden=1
 
-
+let g:diminactive_use_syntax = 1
+let g:diminactive_enable_focus = 1
 
 " Smart way to move between windows"
 
@@ -223,9 +227,9 @@ vmap <silent> <expr> p <sid>Repl()
 vnoremap // y/<C-R>"<CR>
 
 
-:nmap <silent> <leader>q :Bdelete<CR>
+:nmap <silent> <leader>q :bd<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
-:noremap <silent> <leader>e :w<ENTER>:bd<ENTER> 
+:noremap <silent> <leader>e :w<CR>:bd<CR> 
 
 "  Resize split window
 :nmap <leader>+ :vertical resize +10<CR>
@@ -265,6 +269,17 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>4 0wx:w<ENTER>
 :noremap <silent> <leader>7 I//<ESC>:w<ENTER>
 :noremap <silent> <leader>8 0wxx:w<ENTER>
+:nnoremap <Leader>9 g<C-]>
+:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
+::nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
+:nnoremap <leader>y /\<\(def\\|class\\|function\)\> <ENTER>
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
+
+map + <Plug>(wildfire-fuel)
+map _ <Plug>(wildfire-water)
+
+" wrap word in dir(), nice for python print
+:nnoremap <silent> <leader>i bidir(<ESC>ea)<ESC><leader>w
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
@@ -278,11 +293,6 @@ vnoremap ^[j :m '>+1<CR>gv=gv
 vnoremap ^[k :m '<-2<CR>gv=gv
 
 
-:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
-
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
-
-:nnoremap <Leader>9 g<C-]>
 
 let c='a'
 while c <= 'z'
@@ -291,4 +301,29 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 
+function! s:CloseWindow(myParam)
+    echom a:myParam
+    let init_window =  winnr()
+    " Go to window and close
+    execute a:myParam . 'wincmd w'
+    let closing_window =  winnr()
+    if closing_window < init_window
+        let init_window = init_window - 1
+    endif
+    "Close to Window
+    execute 'wincmd c'
+    "Go to original window
+    execute init_window . 'wincmd w'
+endfunction
+
+command! -nargs=1 Cw call s:CloseWindow(<f-args>)
+
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    execute 'nnoremap <Leader>' . i . 'c :Cw ' . i . '<ENTER>'
+    let i = i + 1
+endwhile
+
+:nnoremap <leader>ca :CtrlPClearAllCaches<CR>
 set timeout ttimeoutlen=50

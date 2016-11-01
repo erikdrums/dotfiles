@@ -6,7 +6,13 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="avit"
-plugins=(git mercurial brew npm)
+
+fpath=('/usr/share/zsh/functions/' $fpath)
+autoload -U compinit
+compinit
+
+plugins=(z git mercurial brew npm history-substring-search django python pip node)
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -92,6 +98,9 @@ ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
 
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
+unsetopt inc_append_history
+unsetopt share_history
+
 # Short bender.
 alias b="bender"
 
@@ -132,11 +141,44 @@ function mk() {
 }
 
 function hgcp() {
-  hg ci -m $1 && hg push
+  hg ci -m "'$1'" && hg push
+}
+
+function hgu() {
+  hg pull -u
 }
 
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
 export PATH="/usr/local/bin:$PATH"
 
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin/:$PATH
+source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+## Arrow Keys ###########################################
+
+# OPTION 1: for most systems
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# OPTION 2: for iTerm2 running on Apple MacBook laptops
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
+
+# OPTION 3: for Ubuntu 12.04, Fedora 21, and MacOSX 10.9
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+## EMACS mode ###########################################
+
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+## VI mode ##############################################
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+. ~/.oh-my-zsh/plugins/z/z.sh
+export PATH="/usr/local/bin:$PATH"
+export PATH=/usr/local/share/python:$PATH
