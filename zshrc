@@ -130,7 +130,7 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
-
+alias m='python manage.py'
 
 function cdl() {
   cd "$@" && ls -la
@@ -141,7 +141,7 @@ function mk() {
 }
 
 function hgcp() {
-  hg ci -m $1 && hg push
+  hg ci -m "$*" && hg push
 }
 
 function hgu() {
@@ -150,6 +150,7 @@ function hgu() {
 
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
+export PATH="/usr/local/bin:$PATH"
 
 source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
 ## Arrow Keys ###########################################

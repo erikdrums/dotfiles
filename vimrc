@@ -28,8 +28,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 "Plugin 'blueyed/vim-diminactive'
 "Plugin 'python-rope/ropevim'
-"Plugin 'klen/python-mode'
 Plugin 'cohama/lexima.vim'
+Plugin 'easymotion/vim-easymotion'
 
 
 " All of your Plugins must be added before the following line
@@ -227,9 +227,9 @@ vmap <silent> <expr> p <sid>Repl()
 vnoremap // y/<C-R>"<CR>
 
 
-:nmap <silent> <leader>q :Bdelete<CR>
+:nmap <silent> <leader>q :bd<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
-:noremap <silent> <leader>e :w<ENTER>:bd<ENTER> 
+:noremap <silent> <leader>e :w<CR>:bd<CR> 
 
 "  Resize split window
 :nmap <leader>+ :vertical resize +10<CR>
@@ -321,10 +321,11 @@ command! -nargs=1 Cw call s:CloseWindow(<f-args>)
 let i = 1
 while i <= 9
     execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-    execute 'nnoremap <Leader>' . i . 'cw :Cw ' . i . '<ENTER>'
+    execute 'nnoremap <Leader>' . i . 'c :Cw ' . i . '<ENTER>'
     let i = i + 1
 endwhile
 
+:nnoremap <leader>ca :CtrlPClearAllCaches<CR>
 set timeout ttimeoutlen=50
 
 " Toggling rather than two different keys + autosave
@@ -359,4 +360,3 @@ def toggle_breakpoint():
 
 vim.command('map <f6> :py toggle_breakpoint()<cr>')
 EOF
-
