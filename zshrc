@@ -131,6 +131,9 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias m='python manage.py'
+alias mr='python manage.py runserver'
+alias mmm='python manage.py makemigrations'
+alias mm='python manage.py migrate'
 
 function cdl() {
   cd "$@" && ls -la
