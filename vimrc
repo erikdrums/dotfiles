@@ -28,8 +28,10 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 "Plugin 'blueyed/vim-diminactive'
 "Plugin 'python-rope/ropevim'
-Plugin 'cohama/lexima.vim'
+"Plugin 'cohama/lexima.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'mhinz/vim-signify'
 
 
 " All of your Plugins must be added before the following line
@@ -40,7 +42,7 @@ filetype plugin indent on
 syntax on
 syntax enable
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig,sundhedstallet/node_modules/
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig,node_modules/,*/assets/,static/,*/htmlcov/
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

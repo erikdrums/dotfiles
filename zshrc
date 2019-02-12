@@ -150,9 +150,14 @@ function hgcp() {
 function hgu() {
   hg pull -u
 }
+ 
+function hi() {
+  history | grep "$*"
+}
 
 alias sund="cd ~/wl/sund/sundhedstallet"
 alias n="nano"
+alias v="z community_app && source venv/bin/activate"
 export PATH="/usr/local/bin:$PATH"
 
 source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
